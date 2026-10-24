@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="一刻的隐私政策：本地数据、自动 iCloud 私有备份、实时活动、网站访问与人工支持数据。">
+  <title>隐私政策 · 一刻：专注与习惯</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="shell header-row">
+      <a class="brand" href="index.html" aria-label="一刻，支持网站首页">一刻</a>
+      <nav aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="support.html">使用帮助</a>
+        <a href="privacy.html" aria-current="page">隐私政策</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="shell">
+    <h1>隐私政策</h1>
+    <p class="meta">生效及更新日期：<time datetime="2026-10-25">2026 年 10 月 25 日</time></p>
+    <p>本政策适用于由 Jin Wen 运营的「一刻：专注与习惯」（设备主屏幕名称「一刻」）、本支持网站，以及通过支持邮箱进行的人工支持。隐私问题请联系 <a href="mailto:wjfollowheart@163.com">wjfollowheart@163.com</a>。</p>
+    <div class="notice">
+      <p><strong>重要说明：</strong>一刻以本地数据为核心，但并非所有数据都只留在设备上。系统 iCloud 可用且允许本 App 使用时，有本地内容后会自动尝试上传完整备份；不需要先手动点击上传，App 内也没有启用或暂停备份的开关。</p>
+    </div>
+    <nav class="contents" aria-label="本页目录">
+      <ul>
+        <li><a href="#local">本地功能与数据</a></li>
+        <li><a href="#icloud">自动 iCloud 备份</a></li>
+        <li><a href="#restore">恢复与来源设备</a></li>
+        <li><a href="#activity">锁屏与实时活动</a></li>
+        <li><a href="#control">数据控制与删除</a></li>
+        <li><a href="#support-data">人工支持</a></li>
+        <li><a href="#website">网站访问</a></li>
+        <li><a href="#security">安全与政策更新</a></li>
+      </ul>
+    </nav>
+    <section aria-labelledby="local">
+      <h2 id="local">1. 本地功能与数据</h2>
+      <p>建立习惯、专注计时、确认完成、查看记录及编辑感想等核心功能使用本机保存的数据，可离线使用，无需注册一刻自有账号。App 不接入广告、行为分析或追踪 SDK，不通过自有服务器收集你的习惯与专注内容。</p>
+      <p>本机保存习惯及循环规则、完成记录与时间信息、感想与草稿、土星显示偏好和当前专注的恢复检查点。它们用于提供计时、统计、历史查看和会话恢复。</p>
+      <p>「决心」短句的已展示标记存于本机 UserDefaults，用于减少重复展示，不属于 iCloud 备份快照。备份错误、实时活动失败等诊断信息保存在本地文件，不自动上传给运营者。</p>
+    </section>
+    <section aria-labelledby="icloud">
+      <h2 id="icloud">2. 自动 iCloud 备份</h2>
+      <h3>触发方式与存放位置</h3>
+      <p>当系统 iCloud 账号可用且允许本 App 使用时，App 在首次有非空本地内容后自动尝试备份；之后每次本地保存后会异步更新。新安装时的初始空库不会主动覆盖云端。你也可以在「备份与恢复」中重试，但手动点击不是首次上传的前提。</p>
+      <p>备份通过 Apple CloudKit 保存到当前 iCloud 用户的私有数据库，而不是一刻运营者的自有服务器。App 内没有启用或暂停自动备份的开关；可通过系统 iCloud 的相应权限控制是否允许本 App 使用 iCloud。Apple 提供云服务并按其条款与隐私政策处理相关数据，可参阅 <a href="https://www.apple.com/legal/privacy/">Apple 隐私政策</a>。</p>
+      <h3>上传哪些数据？</h3>
+      <p>备份是一份完整状态快照，包括：</p>
+      <ul>
+        <li>习惯名称、图标、建议开始时间、时长、创建日期、归档状态及循环规则与规则版本。</li>
+        <li>完成记录及关联习惯、日期、时区、开始／结束／确认时间、计划／加时／有效专注／暂停时长，以及当时的周期和规则信息。</li>
+        <li>已保存的感想与未提交的感想草稿。</li>
+        <li>土星显示偏好，例如自转、轻量模式、光线和拖动灵敏度。</li>
+        <li>当前专注会话的状态和恢复检查点，例如关联习惯、时间、已计时长与暂停信息。</li>
+      </ul>
+      <p>App 还将本次安装生成的随机 UUID 作为备份来源标识（ownerDeviceID），连同数据结构版本、数据修订版本、更新时间和内容校验哈希上传至同一私有库，用于来源设备控制、版本判断和完整性检查。这个随机标识不是硬件序列号。</p>
+      <p>为识别 iCloud 账号切换，App 会把云容器与 Apple 返回的账号记录标识组合后计算哈希，并将结果保存在本机作为账号绑定；这个账号绑定哈希不作为备份字段上传。检测到账号变化时，会停止上传，等待你确认使用当前账号。</p>
+      <h3>备份的边界</h3>
+      <p>同一账号只保留一份最新完整快照，并由一台来源设备自动更新，不提供实时多设备同步、数据合并或历史版本列表。离线或请求失败时，本机可能保留待上传快照并重试；回到 App 时也会尝试重试。系统可能挂起 App，因此不能保证退到后台后立即联网或持续上传。请以 App 显示的成功状态为准。</p>
+    </section>
+    <section aria-labelledby="restore">
+      <h2 id="restore">3. 恢复与来源设备</h2>
+      <p>恢复前，App 会读取云端备份供你预览时间与版本；需要你再次确认，才会整库替换本地习惯、记录、感想、草稿、偏好和会话。<strong>恢复不合并数据，不保留恢复前本地副本。</strong>执行失败时保留原本地数据；预览变化时需重新查看。存在当前专注或未解决的本地保存问题时，需先处理。</p>
+      <p>恢复不会自动接管备份来源，恢复出来的专注需手动继续。若要让另一台设备自动更新同一份备份，还需单独确认「接管自动备份」；接管保留云端内容，本地版本较旧时须先恢复。确认账号切换会清除旧账号的待上传队列，再允许当前本地内容上传到当前 iCloud 账号。</p>
+    </section>
+    <section aria-labelledby="activity">
+      <h2 id="activity">4. 锁屏与实时活动</h2>
+      <p>在设备支持且系统允许时，专注中的习惯名称和计时信息可能通过实时活动显示在锁屏或灵动岛。请考虑这些信息被身边他人看见的可能，按需在系统提供的相关设置中管理显示权限。</p>
+      <p>此功能使用本地 ActivityKit，没有一刻自有推送服务，不将习惯内容发送给运营者用于推送。</p>
+    </section>
+    <section aria-labelledby="control">
+      <h2 id="control">5. 数据控制与删除</h2>
+      <p>你可以在 App 中编辑习惯及感想、清空已写感想，或归档习惯。归档仅改变显示和使用状态，历史记录继续保留。对已归档习惯，确认永久删除后会移除该习惯及其全部记录、感想和草稿，并减少相关统计；此操作不可撤销。</p>
+      <p>本地删除不等于即时删除云端内容。只有下一次成功更新备份，云端最新快照才反映删除结果；离线、失败或非来源设备上的删除，不会立即改变原有云端快照。</p>
+      <p>目前 App 内没有单独删除云端备份的功能。卸载 App、退出或切换 iCloud 账号不等于删除已有云端备份；旧账号中的备份不会因确认新账号而被删除。卸载还可能使尚未备份的本地内容丢失。</p>
+      <p>运营者不能代你访问或删除 iCloud 私有数据库。若要管理 Apple 保存的数据，请以 Apple 当前官方说明及设备实际提供的选项为准；本政策不承诺某一固定系统删除入口。你可以联系我们询问数据处理问题，但不要发送完整备份或账号凭证。</p>
+    </section>
+    <section aria-labelledby="support-data">
+      <h2 id="support-data">6. 人工支持</h2>
+      <p>当你主动发送邮件至 <a href="mailto:wjfollowheart@163.com">wjfollowheart@163.com</a> 时，运营者会收到你的邮箱、邮件内容以及你主动附上的截图或其他附件。这些信息仅用于回复、沟通和排查你提出的问题，不用于广告、画像或营销。邮件传输与存储还涉及你使用的邮件服务及本支持邮箱服务商。</p>
+      <p>请尽量只提供 App／iOS 版本、设备型号、复现步骤和去除私人信息的错误截图，不要发送私人记录、完整备份、Apple 账号密码、验证码或其他凭证。</p>
+      <p>支持来信及附件会按问题处理需要保留，不承诺未经核实的固定保存期限。你可通过该邮箱请求查询或删除支持来信；我们会在核实请求后处理可控制范围内的邮件及附件。邮件服务商独立保存的数据受其自身政策约束。</p>
+    </section>
+    <section aria-labelledby="website">
+      <h2 id="website">7. 本支持网站</h2>
+      <p>本网站以静态页面通过 GitHub Pages 提供。页面不包含 JavaScript、分析统计、广告、第三方字体、追踪像素，也不由本站代码设置 Cookie；无需登录或提交表单即可阅读。</p>
+      <p>访问网站仍会向托管服务 GitHub 发起请求。GitHub 可能为提供服务、安全和运行维护处理访问 IP、请求时间及请求日志等技术信息；这些处理不等同于 App 内的本地数据保存。详情请阅读 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub 官方隐私声明</a>。</p>
+      <p>仅浏览网站不会把 App 的习惯或专注记录发送到网站。点击邮件链接并发送来信时，适用上文的人工支持说明；点击外部链接后，适用目标服务自己的隐私政策。</p>
+    </section>
+    <section aria-labelledby="security">
+      <h2 id="security">8. 安全与政策更新</h2>
+      <p>App 使用本地文件保存、备份完整性校验和云端写入冲突检查等措施降低数据损坏或误覆盖风险，但任何存储与传输都不能保证绝对安全。CloudKit 的安全能力由 Apple 提供，本政策不将备份描述为端到端加密，也不承诺运营者能找回已覆盖或已删除的数据。</p>
+      <p>请谨慎确认整库恢复、永久删除、备份来源接管和账号切换。若功能或数据处理方式发生变化，本页会更新并标注日期。有关本政策或个人信息处理的请求，请联系运营者 Jin Wen：<a href="mailto:wjfollowheart@163.com">wjfollowheart@163.com</a>。</p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell">
+      <p><a href="index.html">返回首页</a> · <a href="support.html">使用帮助与联系支持</a></p>
+      <p>一刻：专注与习惯 · 运营者：Jin Wen</p>
+    </div>
+  </footer>
+</body>
+</html>
